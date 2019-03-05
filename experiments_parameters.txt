@@ -1,0 +1,145 @@
+Parameters:
+Fixed Parameters:
+s0 = 80;            %80 initial number of susceptible computers
+i0 = 40;             %40 initial number of infected computers
+c0 = 120;            %120 initial number of computers in the network
+t_final = 1000;		%time interval where the model is evaluated
+
+Moving Parameters:
+b             %rate at which external computers are connected to the network
+bet         %rate at which a susceptible computer can become infected
+mu           %rate at which a computer is removed from the network
+gam          %recovery rate of infected computers due to antivirus
+sig          %aveg delay of the alert notification in virus infection
+r0 = (b*bet)/mu*(mu+gam);   %basic reproduction number
+
+I. Observing Behaviour of Graph using the parameters at r0 < 1
+	I.a On Increasing Value of sigma
+		1st Testing: base 
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 1;           %aveg delay of the alert notification in virus infection
+		=> r0 = 0.84		%initial value of R
+
+		2nd Testing: increased value of sigma (x5)
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 5;			%aveg delay of the alert notification in virus infection
+		=> r0 = 0.84		%initial value of R
+
+		3rd Testing: increased value  of sigma (x2)
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 10;           %aveg delay of the alert notification in virus infection
+		=> r0 = 0.84		%initial value of R
+
+	I.b On Increasing value of b and Decreasing value of gamma
+		4th Testing: b = b+0.003 and gam = gam-0.07
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.018;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.2;          %recovery rate of infected computers due to antivirus
+		sig = 10;           %aveg delay of the alert notification in virus infection
+		=> r0 = 0.84
+
+		5th Testing: b = b+0.003 and gam = gam-0.05
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.021;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.15;          %recovery rate of infected computers due to antivirus
+		sig = 10;           %aveg delay of the alert notification in virus infection
+		=> r0 = 0.84
+
+		6th Testing: b = b+0.003 and gam = gam-0.037
+		b = 20;             %rate at which external computers are connected to the network
+		bet = 0.024;         %rate at which a susceptible computer can become infected
+		mu = 0.15;           %rate at which a computer is removed from the network
+		gam = 0.113;          %recovery rate of infected computers due to antivirus
+		sig = 10;           %aveg delay of the alert notification in virus infection
+		=> r0 = 0.8416
+
+II. Observing Behaviour of Graph using the parameters at r0 > 1
+	II.a On Increasing Value of sigma
+		7th Testing: base 
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 1;           %aveg delay of the alert notification in virus infection
+		=> r0 = 1.8720
+
+		8th Testing: increased value of sigma (x5)
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 5;           %aveg delay of the alert notification in virus infection
+		=> r0 = 1.8720
+
+		9th Testing: increased value  of sigma (x2)
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.015;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.27;          %recovery rate of infected computers due to antivirus
+		sig = 10;           %aveg delay of the alert notification in virus infection
+		=> r0 = 1.8720
+
+	II.b On Increasing value of b and Decreasing value of gamma
+		10th Testing: b = b+0.003 and gam = gam-0.09
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.018;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.18;          %recovery rate of infected computers due to antivirus
+		sig = 10;
+		=> r0 = 1.8576
+
+		11th Testing: b = b+0.003 and gam = gam-0.06
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.021;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.12;          %recovery rate of infected computers due to antivirus
+		sig = 10;
+		=> r0 = 1.8648
+
+		12th Testing: b = b+0.003 and gam = gam-0.05
+		b = 60;             %rate at which external computers are connected to the network
+		bet = 0.024;         %rate at which a susceptible computer can become infected
+		mu = 0.25;           %rate at which a computer is removed from the network
+		gam = 0.07;          %recovery rate of infected computers due to antivirus
+		sig = 10;
+		=> r0 = 1.8432
+		
+
+
+
+Observations:
+I.a
+>The value of sigma has an effect on the amplitude of the graph. Also, sigma has a great effect on how stable or unstable the graph becomes. For an increasing value of sigma, the graph will become more and more unstable and high in amplitude.
+>It seems that even if we would have an initial value of R < 1, we would still have an unstable graph.
+>When sigma is at a big value, the time it needs for the graph to be stable would take a very big time also. On the other hand, when sigma is only at a small value, i.e. on tests 1 and 2, it is easy to observe that the graph took a small amount of time in order to be at the graph's equilibrium.
+
+I.b
+>The increasing value of b and decreasing value of gamma. effects:
+-more cycles
+-big amplitude at first parts
+-amplitude becomes small
+-approaches a much more stable graph
+-
+
+Conclusion:
+
+>having a graph that is stable does not necessarily mean that there are no susceptible nor infected computers in the network.
+>Initial value of R at 0.84 < 1 yields a computer network that is stable but still has an amount of susceptible and infected computers. In this kind of situation, we can say that the network is stable but there are computers that still is inflicted with computer virus.
+>Initial value of R at 1.85 > 1 yields a computer network that is ...
+>Sigma: aveg delay of the alert notification in virus infection.
+The bigger the average delay of alert notification in virus infection, more likely it is that the network of computers becomes unstable due to the infection of computer virus.
+>Beta: rate at which a susceptible computer can become infected
+>and
+>Gamma: recovery rate of infected computers due to antivirus
+increasing rate of a susceptible computer can become infected and a decreasing recovery rate of infected computers yields a computer network that becomes very unstable at first but then becomes stable as time goes on. 

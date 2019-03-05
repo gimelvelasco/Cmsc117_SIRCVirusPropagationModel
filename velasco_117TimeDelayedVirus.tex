@@ -1,0 +1,242 @@
+% THIS IS SIGPROC-SP.TEX - VERSION 3.1
+% WORKS WITH V3.2SP OF ACM_PROC_ARTICLE-SP.CLS
+% APRIL 2009
+\documentclass{acm_proc_article-sp}
+
+
+\begin{document}
+
+\title{SIRC Virus Propagation Model simulated on UPB KA301 Computer Lab}
+
+\author{
+\alignauthor
+    Gimel David F. Velasco\\
+    \affaddr{Department of Mathematics and Computer Science}\\
+    \affaddr{University of the Philippines}\\
+    \email{gfvelasco@up.edu.ph}
+}
+
+
+\date{June 6, 2016}
+
+\maketitle
+
+\abstract{ Using the Time-Delayed SIRC Computer Virus Propagation Model, this paper seeks to investigate the trend of the SIRC Model by doing a series of tests by manipulating the values of the parameters in the said mathematical model. This series of testing includes testing different values on different parameters in an increasing and/or decreasing trend of the Time-Delayed SIRC Virus Propagation Model.}
+
+\section{Introduction}
+With the issue of computer viruses being a growing concern, surely a stronger database to fight against it is a necessity since computer viruses have a devastating effect on the performances of computers and also in a computers storage capabilities. Also with the innovating capabilities of viruses to be time-delayed, the demands of being able to fight against these kind of viruses becomes much more complicated and hard. To cope up with such a great issue, simulations and mathematical models are used so that a safe environment for testing and observing can be used. One of these mathematical models is called the Time-Delayed SIRC Computer Virus Propagation Model. A Computer Network simulated in this paper consists of a number of computers that can belong into three different categories: Susceptible to computer virus, Infected with computer virus or Recovered from a computer virus which explains each letter in the SIRC. A computer can recover from  certain computer virus by the use of an Antivirus program installed in the computer. The Time-delayed SIRC Virus Propagation Model is further discussed in the Methodology below.
+
+\section{SIRC Model}
+The SIRC Model is represented as a system of ordinary differential equations stated below
+
+\begin{equation}
+\dot{S}(t) = b - \beta C(t)I(t) - \mu S(t)
+\end{equation}
+\begin{equation}
+\dot{I}(t) = \beta C(t)I(t) - (\mu + \gamma)I(t)
+\end{equation}
+\begin{equation}
+\dot{R}(t) = \gamma I(t) - \mu R(t)
+\end{equation}
+\begin{equation}
+\dot{C}(t) = \frac{1}{\sigma}(S(t) - C(t))
+\end{equation}
+
+where
+
+\begin{equation}
+C(t) < b/\mu
+\end{equation}
+\begin{equation}
+S(t) + I(t) < b/\mu
+\end{equation}
+\begin{equation}
+R_0 = b\beta/\mu(\mu+\gamma)
+\end{equation}
+
+
+
+wherein the network consists of C number of computers with susceptible(S), infected(I) and recovered(R) computers throughout the time t. The parameters involved in the equation is the following:\\\\
+b is the rate at which external computers are connected to the network\\
+Beta is the rate at which a susceptible computer can become infected\\
+mu is the rate at which a computer is removed from the network\\
+gamma is the recovery rate of infected computers due to antivirus\\
+sigma is the aveg delay of the alert notification in virus infection.\\\\
+For solving the system of ordinary differential equations, a built-in function in MATLAB named "ode45".
+
+\section{Simulation Testing}
+Since testing and observing the trends of the SIRC Model needs a lot of cases considered, there will be parameters in this series of testing classified as fixed or moving. The following fixed parameters used in this testing are the following:
+
+\begin{equation}
+S_0  = 80
+\end{equation}
+\begin{equation}
+I_0  = 40
+\end{equation}
+\begin{equation}
+C_0  = 120
+\end{equation}
+
+Note that the condition at equation 5 and equation 6 must be satisfied for C, S and I.\\
+The parameters that are classified as moving in this series of testing are the following:
+
+\begin{equation}
+b, \beta, \mu, \gamma, \sigma, and R_0
+\end{equation}
+
+In these series of testings, the so called Basic Reproduction Number is used all throughout the testing which is defined in equation 7.
+
+\section{Observing Behaviour of Graph using the parameters at R0 < 1}
+In observing the behaviour of the graph using the parameters with R0 < 1, we use in this testing the value of R0 = 0.84. The method and the results of each testing is displayed and discussed in their same respective subsections.
+
+\subsection{On Increasing value of sigma}
+The sigma from tests 1 to 3 is increasing. The results are then observed and then discussed. Sigma is independent from the initial value of R since sigma is not included in how the initial value of R is defined in equation 7.
+
+\subsubsection{1st Testing: Base}
+b = 20; bet = 0.015; mu = 0.15; gam = 0.27; sig = 1; w/c implies r0 = 0.84\\
+Results are shown in Figure 1
+
+\subsubsection{2nd Testing: Increase 5x}
+b = 20; bet = 0.015; mu = 0.15; gam = 0.27; sig = 5; w/c implies r0 = 0.84\\
+Results are shown in Figure 2
+
+\subsubsection{3rd Testing: Increase 2x}
+b = 20; bet = 0.015; mu = 0.15; gam = 0.27; sig = 10; w/c implies r0 = 0.84\\
+Results are shown in Figure 3
+
+The value of sigma has an effect on the amplitude of the graph. Also, sigma has a great effect on how stable or unstable the graph becomes. For an increasing value of sigma, the graph will become more and more unstable and high in amplitude. It seems that even if we would have an initial value of R < 1, we would still have an unstable graph. When sigma is at a big value, the time it needs for the graph to be stable would take a very big time also. On the other hand, when sigma is only at a small value, i.e. on tests 1 and 2, it is easy to observe that the graph took a small amount of time in order to be at the graph's equilibrium. Also, even though the graph is stable, the number of susceptible and infected computers still are above zero. So having a graph that is stable does not necessarily mean that there are no susceptible nor infected computers in the network.
+
+\subsection{On Increasing value of beta and Decreasing value of gamma}
+The trend of the value of the parameter beta is increasing while the value of the parameter gamma is decreasing, this is necessary because we want the initial value of R to be 0.84 so as to satisfy equation 7. The sigma used in the succeeding testings is sigma = 10 since at this value of sigma, the graph is relatively not hard to observe.
+
+\subsubsection{4th Testing: b = b+0.003; gam = gam-0.07}
+b = 20; bet = 0.018; mu = 0.15; gam = 0.2; sig = 10; w/c implies r0 = 0.84\\
+Results are shown in Figure 4
+
+\subsubsection{5th Testing: b = b+0.003; gam = gam-0.05}
+b = 20; bet = 0.021; mu = 0.15; gam = 0.15; sig = 10; w/c implies r0 = 0.84\\
+Results are shown in Figure 5
+
+\subsubsection{6th Testing: b = b+0.003; gam = gam-0.037}
+b = 20; bet = 0.024; mu = 0.15; gam = 0.113; sig = 10; w/c implies r0 = 0.8416\\
+Results are shown in Figure 6
+
+From observing the results from figures 4 to 6, the effects of increasing the value of beta and decreasing the value of gamma in a way that will still satisfy the initial value of R to be 0.84 is that there are more cycles found in the graph that is the wavelength (for the sake of the term) decreases as the trend of the parameters b and gamma goes on. Also, another observation found is that as the trend of the values of the parameters beta and gamma goes on, big amplitudes are found at the first part of the graph and then eventually becomes small. Fluctuations become much less when b increases and gamma decreases. Thus, when the values of beta increases and the values of gamma decreases, the graph becomes more and more unstable at first but then becomes very stable after a few amount of time.
+
+\section{Observing Behaviour of Graph using the parameters at R0 > 1}
+In observing the behaviour of the graph using the parameters with R0 > 1, we use in this testing the value of R0 = 1.872. The method and the results of each testing is displayed and discussed in their same respective subsections.
+
+\subsection{On Increasing value of sigma}
+The sigma from tests 7 to 9 is increasing. The results are then observed and then discussed. Sigma is independent from the initial value of R since sigma is not included in how the initial value of R is defined in equation 7.
+
+\subsubsection{7th Testing: Base}
+b = 60; bet = 0.015; mu = 0.25; gam = 0.27; sig = 1; w/c implies r0 = 1.8720\\
+Results are shown in Figure 7
+
+\subsubsection{8th Testing: Increase 5x}
+b = 60; bet = 0.015; mu = 0.25; gam = 0.27; sig = 5; w/c implies r0 = 1.8720\\
+Results are shown in Figure 8
+
+\subsubsection{9th Testing: Increase 2x}
+b = 60; bet = 0.015; mu = 0.25; gam = 0.27; sig = 10; w/c implies r0 = 1.8720\\
+Results are shown in Figure 9
+
+On tests 7 and 8, the graph became stable after some time t. Just as how sigma is explained in section 4.1, as gamma increased, the time it takes for the graph to be stable also increases. On test 9 however, the graph became unstable. Just like how sigma affected the graph in tests 1,2 and 3, the graph becomes stable at the first two tests but then becomes unstable on the third test. This confirms how sigma affects the trend of the graph. There is some value of sigma where the graph becomes stable but after a certain value, the graph becomes unstable.
+
+\subsection{On Increasing value of b and Decreasing value of gamma}
+
+\subsubsection{10th Testing: b = b+0.003; gam = gam-0.09}
+b = 60; bet = 0.018; mu = 0.25; gam = 0.18; sig = 10; w/c implies r0 = 1.8576\\
+Results are shown in Figure 10
+
+\subsubsection{11th Testing: b = b+0.003; gam = gam-0.06}
+b = 60; bet = 0.021; mu = 0.25; gam = 0.12; sig = 10; w/c implies r0 = 1.8648\\
+Results are shown in Figure 11
+
+\subsubsection{12th Testing: b = b+0.003; gam = gam-0.05}
+b = 60; bet = 0.024; mu = 0.25; gam = 0.07; sig = 10; w/c implies r0 = 1.8432\\
+Results are shown in Figure 12
+
+On test 10, the graph produced is unstable but as the value of beta increased and as the value of gamma decreased on tests 11 and 12, the graph had a big amplitude at first but later on became very stable after an amount of time. Therefore on tests 10 to 12, just like how the trend is observed in tests 4 to 6, as the value of beta increases and as the value of gamma decreases, the graph becomes stable. This confirms the behaviour of beta and gamma. There still is a number of computers that are susceptible to virus. On the other hand, the number of computers being infected stays at a certain number as time goes on.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test1.jpg}
+  \caption{Test 1}
+  \label{fig:test1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test2.jpg}
+  \caption{Test 2}
+  \label{fig:test2}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test3.jpg}
+  \caption{Test 3}
+  \label{fig:test3}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test4.jpg}
+  \caption{Test 4}
+  \label{fig:test4}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test5.jpg}
+  \caption{Test 5}
+  \label{fig:test5}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test6.jpg}
+  \caption{Test 6}
+  \label{fig:test6}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test7.jpg}
+  \caption{Test 7}
+  \label{fig:test7}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test8.jpg}
+  \caption{Test 8}
+  \label{fig:test8}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test9.jpg}
+  \caption{Test 9}
+  \label{fig:test9}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test10.jpg}
+  \caption{Test 10}
+  \label{fig:test10}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test11.jpg}
+  \caption{Test 11}
+  \label{fig:test11}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{test12.jpg}
+  \caption{Test 12}
+  \label{fig:test12}
+\end{figure}
+
+\section{Conclusion}
+After a series of testing performed on the Time-Delayed SIRC Computer Virus Propagation, these are the findings that are found. Note that, having a graph that is stable does not necessarily mean that there are no susceptible nor infected computers in the network. It was observed in the whole tests that whenever a graph becomes stable, there still are a number of computers that are susceptible or infected with virus. Initial value of R at 0.84 < 1 yields a computer network that is stable but still has an amount of susceptible and infected computers. In this kind of situation, we can say that the network is stable but there are computers that still is inflicted with computer virus. Same as when the initial value of R at 1.85 > 1 because the values of the parameters of the model. It is also observed that when the average delay of the alert notification in virus infection increases, more likely it is that the computer network becomes unstable due to the infliction of computer virus. Also, an increasing rate of a susceptible computer infection and a decreasing recovery rate of infected computers yields a computer network that becomes very unstable at first but then becomes stable as time goes on. But the downside of this is that after the computer network has become stable, which means they are already in the state of equilibrium, but there still is a number of computers that are susceptible or infected with computer virus. Thus eliminating all chances of the network being virus free.
+
+\section{References}
+[1] J. Ren, Y. Xu, Y. Zhang, Y. Dong and G. Hao, "Dynamics of a Delay-Varying Computer Virus Propagation Model", 19 July 2012. [Online]. Available: http://www.emis.de/journal\\s/HOA/DDNS/Volume2012/371792.pdf. [Accessed May 22, 2016].
+
+[2] "Using ode45 to Solve a System of Three Equations". Available: http://www3.nd.edu/~nancy/Math20750/Demo\\s/3dplots/dim3system.html. [Accessed May 22, 2016].
+
+\end{document}
